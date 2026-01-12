@@ -1,18 +1,19 @@
-import { ThemeToggle } from "@/components/layout/theme-toggle";
-
 export default function Home() {
   return (
-    <div className="min-h-screen p-8">
-      <div className="flex justify-end mb-8">
-        <ThemeToggle />
-      </div>
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4">Washify</h1>
-        <p className="text-lg text-muted-foreground">
-          Mobile Car Wash Booking System
-        </p>
-        <div className="mt-8 p-6 border rounded-lg">
-          <p>Test dark mode med knappen uppe till höger!</p>
+    <div className="min-h-screen">
+      <div className="container py-16 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+            Washify
+          </h1>
+          <p className="text-xl text-muted-foreground">
+            Professionell biltvätt direkt till din dörr
+          </p>
+          <div className="mt-12 p-8 border rounded-xl bg-card">
+            <p className="text-muted-foreground">
+              Välkommen till Washify! Vi bygger din bokningsplattform.
+            </p>
+          </div>
         </div>
       </div>
     </div>
