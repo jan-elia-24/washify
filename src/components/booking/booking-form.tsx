@@ -105,6 +105,33 @@ export function BookingForm({ packages }: BookingFormProps) {
 
       if (bookingError) throw bookingError;
 
+      // Send confirmation email
+      try {
+        await fetch("/api/send-booking-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            customerEmail: values.email,
+            customerName: values.name,
+            bookingNumber,
+            serviceName: selectedPackage.name,
+            servicePrice: selectedPackage.price,
+            bookingDate: values.bookingDate,
+            bookingTime: values.bookingTime,
+            address: values.address,
+            city: values.city,
+            postalCode: values.postalCode,
+            carModel: values.carModel,
+            licensePlate: values.licensePlate,
+          }),
+        });
+        // Don't block booking if email fails
+      } catch (emailError) {
+        console.error("Email error:", emailError);
+      }
+
       // Redirect to confirmation
       router.push(`/confirmation?booking=${bookingNumber}`);
     } catch (error) {
