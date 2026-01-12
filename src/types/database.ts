@@ -39,3 +39,11 @@ export interface BookingWithDetails extends Booking {
   customer: Customer;
   service_package: ServicePackage;
 }
+
+export interface Admin {
+  id: string;
+  email: string;
+  password_hash: string;
+  role: string;
+  created_at: string;
+}
