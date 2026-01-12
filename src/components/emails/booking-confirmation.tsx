@@ -195,7 +195,7 @@ export const BookingConfirmationEmail = ({
 
         <p>
           Har du frågor? Kontakta oss på <a href="mailto:info@washify.se" style={{ color: '#667eea' }}>info@washify.se</a> 
-          eller ring oss på <strong>070-123 45 67</strong>.
+          eller ring oss på <strong>073-949 59 24</strong>.
         </p>
       </div>
 

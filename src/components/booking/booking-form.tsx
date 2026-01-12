@@ -23,9 +23,16 @@ const bookingSchema = z.object({
   carModel: z.string().min(2, "Ange bilmodell"),
   licensePlate: z.string().optional(),
   address: z.string().min(5, "Ange fullständig adress"),
-  postalCode: z.string().regex(/^\d{5}$/, "Ogiltigt postnummer (5 siffror)"),
+  postalCode: z.string()
+    .transform((val) => val.replace(/\s/g, ""))
+    .refine((val) => /^\d{5}$/.test(val), "Ogiltigt postnummer (5 siffror)"),
   city: z.string().min(2, "Ange stad"),
-  bookingDate: z.string().min(1, "Välj datum"),
+  bookingDate: z.string().min(1, "Välj datum").refine((date) => {
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return selectedDate >= today;
+  }, "Du kan inte välja ett datum som har passerat"),
   bookingTime: z.string().min(1, "Välj tid"),
   specialRequests: z.string().optional(),
 });
