@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, Sparkles, Clock, MapPin } from "lucide-react";
@@ -20,24 +21,34 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-background" />
-        <div className="container relative px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom-4 duration-1000 hover:scale-105 transition-transform cursor-default">
-              Professionell biltvätt direkt till din dörr
-            </h1>
-            <p className="text-xl text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
-              Boka enkelt, vi tar hand om resten. Din bil förtjänar det bästa.
-            </p>
-            <div className="flex gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-              <Button asChild size="lg" className="text-lg px-8">
-                <Link href="/book">Boka nu</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="text-lg px-8">
-                <Link href="#packages">Se priser</Link>
-              </Button>
-            </div>
+        <div className="absolute inset-0">
+          <Image
+            src="/hero-bg.jpg"
+            alt="Clean car background"
+            fill
+            priority
+            quality={85}
+            className="object-cover"
+            sizes="100vw"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10" />
+        <div className="relative px-6 max-w-7xl mx-auto z-20"><div className="max-w-3xl mx-auto text-center space-y-8">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-primary/80 to-primary/60 bg-clip-text text-transparent animate-in fade-in slide-in-from-bottom-4 duration-1000 hover:scale-105 transition-transform cursor-default">
+            Professionell biltvätt direkt till din dörr
+          </h1>
+          <p className="text-xl text-muted-foreground animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
+            Boka enkelt, vi tar hand om resten. Din bil förtjänar det bästa.
+          </p>
+          <div className="flex gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
+            <Button asChild size="lg" className="text-lg px-8">
+              <Link href="/book">Boka nu</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="text-lg px-8">
+              <Link href="#packages">Se priser</Link>
+            </Button>
           </div>
+        </div>
         </div>
       </section>
 

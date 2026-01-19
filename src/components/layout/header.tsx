@@ -1,5 +1,6 @@
 "use client";
 
+import { Logo } from "./logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "./theme-toggle";
@@ -18,10 +19,8 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-20 items-center justify-between px-6">
         <div className="flex items-center gap-12">
-          <Link href="/" className="group flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent transition-all group-hover:from-primary/80 group-hover:to-primary/40">
-              Washify
-            </span>
+          <Link href="/" className="group flex items-center">
+            <Logo />
           </Link>
           <nav className="hidden md:flex gap-8">
             {navItems.map((item) => (
